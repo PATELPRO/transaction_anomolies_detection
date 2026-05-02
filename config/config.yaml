@@ -1,0 +1,21 @@
+data:
+  tickers:
+    - "JPM"      # JPMorgan Chase
+    - "BAC"      # Bank of America
+    - "GS"       # Goldman Sachs
+    - "V"        # Visa
+    - "MA"       # Mastercard
+  period: "2y"           # 2 years of data
+  interval: "1h"         # Hourly data
+
+model:
+  sarima:
+    order: [1, 1, 1]           # p, d, q
+    seasonal_order: [1, 1, 1, 5]  # P, D, Q, s (5 trading days)
+  anomaly:
+    warning_threshold: 2.0     # z-score for warning
+    critical_threshold: 3.0    # z-score for anomaly
+
+app:
+  refresh_interval: 3600       # seconds between data refresh
+  forecast_horizon: 48         # periods to forecast ahead
