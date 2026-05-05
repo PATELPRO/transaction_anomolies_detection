@@ -1,21 +1,77 @@
 data:
+  # Indian banking and fintech stocks on NSE
   tickers:
-    - "JPM"      # JPMorgan Chase
-    - "BAC"      # Bank of America
-    - "GS"       # Goldman Sachs
-    - "V"        # Visa
-    - "MA"       # Mastercard
-  period: "2y"           # 2 years of data
-  interval: "1h"         # Hourly data
+    - "HDFCBANK.NS"      # HDFC Bank — largest private bank
+    # - "ICICIBANK.NS"     # ICICI Bank — major private bank
+    # - "AXISBANK.NS"      # Axis Bank — major private bank
+    # - "KOTAKBANK.NS"     # Kotak Mahindra Bank
+    # - "SBIN.NS"          # State Bank of India — largest PSU bank
+    # - "BAJFINANCE.NS"    # Bajaj Finance — leading NBFC/Fintech
+    # - "PAYTM.NS"         # Paytm — pure Fintech
+    # - "HDFCLIFE.NS"      # HDFC Life Insurance
+
+  # Indian market indices
+  indices:
+    - "^NSEI"            # Nifty 50
+    - "^NSEBANK"         # Nifty Bank Index — most relevant for us
+
+  period: "3y"           # 2 years of historical data
+  interval: "1d"         # Daily data (more reliable for Indian stocks)
+  
+  # Indian market hours (IST)
+  market_open: "09:15"
+  market_close: "15:30"
+  timezone: "Asia/Kolkata"
 
 model:
   sarima:
-    order: [1, 1, 1]           # p, d, q
-    seasonal_order: [1, 1, 1, 5]  # P, D, Q, s (5 trading days)
+    order: [1, 1, 1]              # p, d, q — starting point
+    seasonal_order: [1, 1, 1, 5]  # P, D, Q, s (5 trading days/week)
+  
   anomaly:
-    warning_threshold: 2.0     # z-score for warning
-    critical_threshold: 3.0    # z-score for anomaly
+    warning_threshold: 2.0        # z-score for yellow alert
+    critical_threshold: 3.0       # z-score for red alert
+
+  evaluation:
+    train_ratio: 0.8              # 80% train, 20% test
+    walk_forward_steps: 30        # days per walk-forward window
 
 app:
-  refresh_interval: 3600       # seconds between data refresh
-  forecast_horizon: 48         # periods to forecast ahead
+  refresh_interval: 86400         # Daily refresh (Indian market is daily)
+  forecast_horizon: 30            # 30 trading days ahead
+  
+# Known Indian market events for anomaly validation
+# These are ground truth anomalies we can verify our model against
+known_events:
+  - date: "2023-06-08"
+    description: "RBI MPC pause — rate hold surprise"
+
+  - date: "2023-07-28"
+    description: "Nifty all-time high breakout"
+
+  - date: "2023-10-19"
+    description: "Israel-Hamas war — FII selloff"
+
+  - date: "2024-02-01"
+    description: "Union Budget 2024 — Capex boost"
+
+  - date: "2024-04-19"
+    description: "Iran-Israel escalation — market crash"
+
+  - date: "2024-06-04"
+    description: "Election results — Nifty 8% crash and recovery"
+
+  - date: "2024-07-23"
+    description: "Union Budget 2024-25 — LTCG tax hike selloff"
+
+  - date: "2024-10-03"
+    description: "FII record selloff — October crash"
+
+  - date: "2024-11-06"
+    description: "Trump election win — IT rally"
+
+  - date: "2025-02-01"
+    description: "Union Budget 2025 — income tax relief rally"
+
+  - date: "2025-04-07"
+    description: "US tariff shock — global selloff"
