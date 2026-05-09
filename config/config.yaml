@@ -43,35 +43,74 @@ app:
 # Known Indian market events for anomaly validation
 # These are ground truth anomalies we can verify our model against
 known_events:
+
+  - date: "2026-03-18"
+    description: "HDFC Chairmain resigns"
+    type: "stock_specific"
+
+  # ── HDFC Bank Specific Events ──
+  - date: "2023-07-01"
+    description: "HDFC-HDFC Bank merger completion"
+    type: "stock_specific"
+
+  - date: "2023-10-14"
+    description: "HDFC Bank Q2 results — NIM miss"
+    type: "stock_specific"
+
+  - date: "2024-01-16"
+    description: "HDFC Bank Q3 results — deposit growth concern"
+    type: "stock_specific"
+
+  - date: "2024-04-20"
+    description: "HDFC Bank Q4 results — loan growth slowdown"
+    type: "stock_specific"
+
+  - date: "2024-07-20"
+    description: "HDFC Bank Q1 FY25 results"
+    type: "stock_specific"
+
+  - date: "2024-10-19"
+    description: "HDFC Bank Q2 FY25 results — strong NII"
+    type: "stock_specific"
+
+  - date: "2025-01-22"
+    description: "HDFC Bank Q3 FY25 results"
+    type: "stock_specific"
+
+  # ── Banking Sector Specific Events ──
   - date: "2023-06-08"
-    description: "RBI MPC pause — rate hold surprise"
+    description: "RBI MPC rate pause — banking rally"
+    type: "sector"
 
-  - date: "2023-07-28"
-    description: "Nifty all-time high breakout"
+  - date: "2023-08-10"
+    description: "RBI incremental CRR announcement"
+    type: "sector"
 
-  - date: "2023-10-19"
-    description: "Israel-Hamas war — FII selloff"
+  - date: "2024-02-08"
+    description: "RBI MPC hold — banking sector relief"
+    type: "sector"
 
-  - date: "2024-02-01"
-    description: "Union Budget 2024 — Capex boost"
+  - date: "2024-08-06"
+    description: "RBI MPC — Shaktikanta Das hawkish tone"
+    type: "sector"
 
-  - date: "2024-04-19"
-    description: "Iran-Israel escalation — market crash"
+  - date: "2024-10-09"
+    description: "RBI MPC rate cut expectations"
+    type: "sector"
 
+  - date: "2025-02-07"
+    description: "RBI first rate cut in 5 years"
+    type: "sector"
+
+  # ── Broad Market Events ──
   - date: "2024-06-04"
-    description: "Election results — Nifty 8% crash and recovery"
+    description: "Election results — Nifty 8pct crash"
+    type: "market"
 
   - date: "2024-07-23"
-    description: "Union Budget 2024-25 — LTCG tax hike selloff"
-
-  - date: "2024-10-03"
-    description: "FII record selloff — October crash"
-
-  - date: "2024-11-06"
-    description: "Trump election win — IT rally"
-
-  - date: "2025-02-01"
-    description: "Union Budget 2025 — income tax relief rally"
+    description: "Budget LTCG tax hike — selloff"
+    type: "market"
 
   - date: "2025-04-07"
     description: "US tariff shock — global selloff"
+    type: "market"
