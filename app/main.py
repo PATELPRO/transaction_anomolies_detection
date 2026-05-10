@@ -111,7 +111,7 @@ else:
 
 
 # ── Section 1 — Status ──
-st.title("📊 HDFC Bank Volume Anomaly Monitor")
+st.title("Stock Volume Anomaly Monitor")
 st.caption(
     f"NSE daily trading volume — "
     f"last updated {today.strftime('%d %b %Y')}"
