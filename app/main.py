@@ -20,7 +20,7 @@ from src.anomaly_detection import (
 )
 
 st.set_page_config(
-    page_title="HDFC Bank Volume Monitor",
+    page_title=f"{ticker} Bank Volume Monitor",
     page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded"
