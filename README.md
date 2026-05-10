@@ -38,36 +38,7 @@ HDFC Bank daily volume approximates a **random walk** — consistent with weak-f
 Forecasting-based anomaly detection was replaced with **distribution-based detection** — which does not require the series to be predictable, only that the distribution of normal behavior is stable.
 
 ---
-
-## Repository Structure
-transaction-anomaly-detection/
-│
-├── notebooks/
-│   ├── 01_data_ingestion_eda.ipynb
-│   ├── 02_time_series_analysis.ipynb
-│   ├── 03_forecasting_engine.ipynb
-│   ├── 04_anomaly_detection.ipynb
-│   ├── 05_evaluation.ipynb
-│   └── 06_scalability_extensions.ipynb
-│
-├── src/
-│   ├── data_ingestion.py
-│   ├── anomaly_detection.py
-│   ├── preprocessing.py
-│   ├── forecasting.py
-│   └── evaluation.py
-│
-├── app/
-│   ├── main.py
-│   └── components/
-│
-├── config/
-│   └── config.yaml
-│
-├── Dockerfile
-└── requirements.txt
 ---
-
 ## The Full Project Journey
 
 ### Notebook 1 — Data Ingestion and EDA
