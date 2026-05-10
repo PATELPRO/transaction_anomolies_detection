@@ -10,6 +10,9 @@ COPY . .
 EXPOSE 7860
 
 ENV PYTHONPATH=/app
+ENV STREAMLIT_SERVER_PORT=7860
+ENV STREAMLIT_SERVER_ADDRESS=0.0.0.0
+ENV STREAMLIT_SERVER_HEADLESS=true
 
 CMD ["streamlit", "run", "app/main.py", \
      "--server.port=7860", \
